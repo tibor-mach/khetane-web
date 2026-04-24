@@ -25,10 +25,10 @@ PUBLIC = ROOT / "public"
 PAGES: list[tuple[str, str]] = [
     ("/", "<title>Khetane — Gipsy Funk</title>"),
     ("/index.html", "<title>Khetane — Gipsy Funk</title>"),
-    ("/about.html", "<title>About — Khetane</title>"),
-    ("/music.html", "<title>Music — Khetane</title>"),
-    ("/media.html", "<title>Media — Khetane</title>"),
-    ("/concerts.html", "<title>Shows — Khetane</title>"),
+    ("/about.html", "<title>O kapele — Khetane</title>"),
+    ("/music.html", "<title>Hudba — Khetane</title>"),
+    ("/media.html", "<title>Fotky &amp; videa — Khetane</title>"),
+    ("/concerts.html", "<title>Koncerty — Khetane</title>"),
 ]
 
 ASSETS: list[str] = [

@@ -24,20 +24,20 @@
 
       if (upcoming.length === 0) {
         list.innerHTML =
-          '<li class="concert"><div class="date">—</div><div><div class="venue">No shows scheduled right now</div><div class="city">Check back soon, or follow us on social.</div></div></li>';
+          '<li class="concert"><div class="date">—</div><div><div class="venue">Momentálně nemáme naplánované žádné koncerty</div><div class="city">Mrkněte sem za chvíli nebo nás sledujte na sociálních sítích.</div></div></li>';
         return;
       }
 
       list.innerHTML = upcoming
         .map((c) => {
           const d = new Date(c.date);
-          const date = d.toLocaleDateString(undefined, {
-            month: "short",
+          const date = d.toLocaleDateString("cs-CZ", {
             day: "numeric",
+            month: "long",
             year: "numeric",
           });
           const ticket = c.ticket_url
-            ? `<a class="ticket" href="${c.ticket_url}" target="_blank" rel="noopener">Tickets</a>`
+            ? `<a class="ticket" href="${c.ticket_url}" target="_blank" rel="noopener">Vstupenky</a>`
             : "";
           return `
             <li class="concert">
@@ -53,6 +53,6 @@
     })
     .catch(() => {
       list.innerHTML =
-        '<li class="concert"><div class="date">!</div><div><div class="venue">Could not load shows</div></div></li>';
+        '<li class="concert"><div class="date">!</div><div><div class="venue">Koncerty se nepodařilo načíst</div></div></li>';
     });
 })();
