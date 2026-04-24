@@ -1,0 +1,10 @@
+[project]
+name = "khetane-web"
+version = "0.1.0"
+description = "Static website for the gipsy funk band Khetane."
+requires-python = ">=3.11"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=3.7.0",
+]

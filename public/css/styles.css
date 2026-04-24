@@ -1,0 +1,421 @@
+/* Khetane — shared styles
+   Palette: deep wine, warm ochre, cream, charcoal. */
+
+:root {
+  --wine: #6b1f2a;
+  --wine-dark: #4a141c;
+  --ochre: #d89a3b;
+  --cream: #f5ebd6;
+  --ink: #1f1a18;
+  --muted: #7a6b64;
+  --line: rgba(31, 26, 24, 0.12);
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --maxw: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--wine);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--ochre);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Navigation ---------- */
+
+.site-nav {
+  background: var(--ink);
+  color: var(--cream);
+  border-bottom: 3px solid var(--ochre);
+}
+
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  text-transform: uppercase;
+}
+
+.brand:hover {
+  color: var(--ochre);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--ochre);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: linear-gradient(rgba(31, 26, 24, 0.55), rgba(31, 26, 24, 0.75)),
+    radial-gradient(circle at 30% 30%, var(--wine), var(--wine-dark) 70%);
+  color: var(--cream);
+  padding: 6rem 0 5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  color: var(--cream);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero .tagline {
+  font-size: 1.15rem;
+  color: var(--ochre);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.hero .cta {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  background: var(--ochre);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.hero .cta:hover {
+  background: var(--cream);
+}
+
+/* ---------- Page headers (non-home pages) ---------- */
+
+.page-header {
+  background: var(--wine-dark);
+  color: var(--cream);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Sections ---------- */
+
+section {
+  padding: 3.5rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--ochre);
+  margin: 0.75rem auto 0;
+}
+
+/* ---------- Concert list ---------- */
+
+.concert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.concert {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+}
+
+.concert:last-child {
+  border-bottom: none;
+}
+
+.concert .date {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--wine);
+}
+
+.concert .venue {
+  font-weight: 600;
+}
+
+.concert .city {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.concert .ticket {
+  padding: 0.5rem 1rem;
+  background: var(--wine);
+  color: var(--cream);
+  border-radius: 2px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.concert .ticket:hover {
+  background: var(--ochre);
+  color: var(--ink);
+}
+
+@media (max-width: 640px) {
+  .concert {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  .concert .ticket {
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+}
+
+/* ---------- Media grid ---------- */
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.media-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.media-item .thumb {
+  aspect-ratio: 16 / 9;
+  background: var(--wine-dark) center/cover no-repeat;
+}
+
+.media-item .caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+}
+
+.video-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.video-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Songs & lyrics ---------- */
+
+.song {
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 0;
+}
+
+.song:last-child {
+  border-bottom: none;
+}
+
+.song-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--wine);
+  margin: 0 0 0.5rem;
+}
+
+.song details {
+  margin-top: 0.5rem;
+}
+
+.song summary {
+  cursor: pointer;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.song .lyrics {
+  white-space: pre-line;
+  margin-top: 0.75rem;
+  color: var(--ink);
+  font-size: 0.98rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--ochre);
+}
+
+.spotify-embed {
+  margin-bottom: 2.5rem;
+}
+
+.spotify-embed iframe {
+  width: 100%;
+  min-height: 380px;
+  border: 0;
+  border-radius: 12px;
+}
+
+/* ---------- About ---------- */
+
+.about-text {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+.band-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.member {
+  text-align: center;
+}
+
+.member .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--wine);
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+}
+
+.member .name {
+  font-weight: 600;
+}
+
+.member .role {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+}
+
+.social-links a:hover {
+  color: var(--ochre);
+}
+
+.site-footer .copy {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
