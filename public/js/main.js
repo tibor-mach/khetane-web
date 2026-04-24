@@ -1,21 +1,20 @@
 // Mark the current nav link as active based on the URL.
 (function () {
-  const here = location.pathname === "/" ? "/index.html" : location.pathname;
+  const hereFile = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav-links a").forEach((link) => {
-    const href =
-      link.getAttribute("href") === "/"
-        ? "/index.html"
-        : link.getAttribute("href");
-    if (here === href) link.classList.add("active");
+    const href = link.getAttribute("href");
+    const linkFile =
+      (href === "./" ? "index.html" : href.split("/").pop()) || "index.html";
+    if (hereFile === linkFile) link.classList.add("active");
   });
 })();
 
-// Render upcoming concerts from /data/concerts.json on the concerts page.
+// Render upcoming concerts from data/concerts.json on the concerts page.
 (function () {
   const list = document.getElementById("concert-list");
   if (!list) return;
 
-  fetch("/data/concerts.json")
+  fetch("data/concerts.json")
     .then((r) => r.json())
     .then((concerts) => {
       const now = new Date();
